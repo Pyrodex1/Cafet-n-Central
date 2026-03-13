@@ -238,4 +238,45 @@ Este archivo será la vista que reciben los usuarios con rol “cliente” despu
 
 **Decisión técnica:**
 Separar la estructura HTML del módulo permite trabajar posteriormente los estilos (`cliente.css`) y la lógica (`cliente.js`) sin mezclar responsabilidades, manteniendo el patrón vertical exigido.
+
+---
+
+### Commit 7: `agregar estilos visuales del módulo de clientela`
+
+**Archivo creado:** `css/cliente.css`
+
+**¿Qué se implementó?**
+Se diseñó la primera versión de la experiencia visual para los clientes:
+
+1. **Encabezado fijo del usuario**
+   - Fondo en color primario y texto claro
+   - Botón de cierre de sesión con borde blanco semitransparente
+
+2. **Layout principal con grid**
+   - `.client-layout` divide la vista en catálogo (2fr) y barra lateral (1fr)
+   - Media query para apilar secciones en pantallas pequeñas
+
+3. **Tarjetas de producto**
+   - `product-card` con borde sutil y padding
+   - Imágenes responsivas (`object-fit: cover`)
+   - Botón primario para “Agregar al carrito” reutilizando la paleta global
+
+4. **Componentes de barra lateral**
+   - Carrito e historial con `overflow-y: auto` para mantener tamaños controlados
+   - Mensajes “empty” estilizados en color gris
+   - Sección de puntos de lealtad centrada
+
+**¿Por qué se hizo en este momento?**
+Después de tener la estructura, tocaba darle identidad visual coherente con el resto del sistema antes de implementar la lógica interactiva.
+
+**¿Cómo funciona?**
+- Las tarjetas se organizan con `grid-template-columns: repeat(auto-fill, minmax(180px, 1fr))` para adaptarse a diversos anchos.
+- Los botones reutilizan las variables `--secondary-color` y `--success-color` definidas en `common.css`.
+- Flexbox y Grid facilitan el alineamiento y distribución de elementos sin cálculos manuales de tamaño.
+
+**¿Cómo se conecta al proyecto?**
+`cliente.css` se importa únicamente en `cliente.html`. Comparte la paleta y tipografía de `common.css`, pero define las clases específicas que el HTML ya expone.
+
+**Decisión técnica:**
+Separar estilos por módulo nos permite mantener el límite de 150 líneas y facilita el mantenimiento. Además, usar CSS nativo mantiene el cumplimiento de la restricción “sin frameworks”.
 " 
