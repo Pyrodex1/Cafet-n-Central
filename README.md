@@ -405,3 +405,50 @@ Usar fuente monoespaciada para el recibo simula la salida de una impresora térm
 
 ---
 
+### Commit 11: `implementar lógica interactiva del módulo de cajero`
+
+**Archivo creado:** `js/cajero.js`
+
+**¿Qué se implementó?**
+Toda la funcionalidad del punto de venta:
+
+1. **Control de sesión**
+   - Valida que el usuario sea cajero, redirige al login si no
+   - Muestra nombre y rol en el encabezado
+
+2. **Población del selector de productos**
+   - `populateProductSelect()` llena el `<select>` con todos los productos disponibles
+   - Muestra nombre y precio de cada producto
+
+3. **Gestión del pedido**
+   - Arreglo `order` acumula productos con cantidades
+   - `addProductToOrder()` agrega o incrementa productos
+   - `updateOrderUI()` recalcula y muestra lista y total
+
+4. **Generación de recibo**
+   - `generateReceipt()` crea un ticket formateado con:
+     - Encabezado con nombre del cafetín
+     - Fecha, hora y nombre del cajero
+     - Detalle de cada producto (cantidad, precio unitario, subtotal)
+     - Total general
+     - Mensaje de agradecimiento
+   - Usa template literals para formatear el texto
+   - Limpia el pedido después de generar el recibo
+
+**¿Por qué se hizo en este momento?**
+Completando el patrón vertical del módulo cajero: HTML + CSS + JS. Ahora el POS es completamente funcional.
+
+**¿Cómo funciona?**
+- `Array.find` localiza productos por ID
+- `Array.reduce` calcula el total del pedido
+- Template literals (`\n`) crean saltos de línea para el formato del recibo
+- `<pre>` preserva el formato del texto en el HTML
+
+**¿Cómo se conecta al proyecto?**
+Este JS depende de `data.js` y se carga en `cajero.html`. El módulo de autenticación redirige aquí cuando el usuario es cajero.
+
+**Decisión técnica:**
+Usar texto plano formateado con espacios y líneas simula un ticket térmico real sin necesidad de librerías de impresión. El formato es legible y profesional para la defensa académica.
+
+---
+
