@@ -321,4 +321,45 @@ Este JS depende de `data.js` y se carga en `cliente.html`. El módulo de autenti
 
 **Decisión técnica:**
 Mantener los estados (`cart`, `history`, `loyaltyPoints`) en memoria es suficiente para el prototipo. Se prioriza claridad sobre persistencia, ya que el requerimiento explícitamente indica datos simulados sin backend.
-" 
+
+---
+
+### Commit 9: `crear estructura HTML del módulo de cajero`
+
+**Archivo creado:** `cajero.html`
+
+**¿Qué se implementó?**
+Se construyó la interfaz del punto de venta (POS) para el personal de caja:
+
+1. **Encabezado del cajero**
+   - Muestra nombre y rol del cajero autenticado
+   - Botón de cierre de sesión
+
+2. **Sección de captura de pedido**
+   - Selector `<select>` para elegir productos del catálogo
+   - Botón "Agregar al pedido" para construir la orden
+   - Lista de productos agregados con total acumulado
+
+3. **Sección de recibo**
+   - Área de visualización donde se generará el recibo simulado
+   - Botón "Generar Recibo" que procesa el pedido y muestra el comprobante
+
+4. **Scripts vinculados**
+   - `data.js` para acceder al catálogo de productos
+   - `cajero.js` (próximo paso) para la lógica del POS
+
+**¿Por qué se hizo en este momento?**
+Completado el módulo de cliente, continuamos con el segundo rol (cajero) siguiendo la metodología vertical: primero la estructura HTML.
+
+**¿Cómo funciona?**
+- El `<select>` se poblará dinámicamente con los productos disponibles
+- Cada producto agregado se acumulará en `#orderItems`
+- Al generar el recibo, se mostrará un comprobante formateado con mensaje de agradecimiento
+
+**¿Cómo se conecta al proyecto?**
+`auth.js` redirige a `cajero.html` cuando el usuario tiene rol "cajero". Esta vista permite al personal de caja procesar pedidos de forma simulada.
+
+**Decisión técnica:**
+Separar la captura del pedido de la visualización del recibo facilita la comprensión del flujo: primero se construye la orden, luego se genera el comprobante. Esto refleja el proceso real de un punto de venta.
+
+---

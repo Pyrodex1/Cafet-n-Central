@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo de Cajero - Cafetín Central</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/cajero.css">
+</head>
+<body>
+    <header class="cashier-header">
+        <div class="user-info">
+            <h1>Punto de Venta</h1>
+            <p id="cashierName">Cajero Principal</p>
+            <small id="cashierRole">Rol: Cajero</small>
+        </div>
+        <button id="logoutBtn" class="btn-logout">Cerrar sesión</button>
+    </header>
+
+    <main class="cashier-layout">
+        <section class="pos-section">
+            <h2>Capturar Pedido</h2>
+            
+            <div class="product-selector">
+                <label for="productSelect">Seleccionar producto:</label>
+                <select id="productSelect">
+                    <option value="">-- Elige un producto --</option>
+                </select>
+                <button id="addProductBtn" class="btn-add">Agregar al pedido</button>
+            </div>
+
+            <div class="order-list">
+                <h3>Pedido Actual</h3>
+                <ul id="orderItems" class="order-items">
+                    <li class="empty">No hay productos en el pedido</li>
+                </ul>
+                <div class="order-summary">
+                    <p><strong>Total:</strong> <span id="orderTotal">$0.00</span></p>
+                </div>
+            </div>
+
+            <button id="generateReceiptBtn" class="btn-primary">Generar Recibo</button>
+        </section>
+
+        <section class="receipt-section">
+            <h2>Recibo</h2>
+            <div id="receiptDisplay" class="receipt-display">
+                <p class="empty">El recibo aparecerá aquí después de generar el pedido</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/cajero.js"></script>
+</body>
+</html>
