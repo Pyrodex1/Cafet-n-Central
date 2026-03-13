@@ -1,0 +1,140 @@
+.cashier-header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ 
+.cashier-header h1 {
+    font-size: 1.6rem;
+}
+ 
+.cashier-header p {
+    margin-top: 6px;
+    font-weight: 500;
+}
+ 
+.cashier-header small {
+    color: rgba(255,255,255,0.8);
+}
+ 
+.cashier-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 24px;
+}
+ 
+.pos-section, .receipt-section {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 24px;
+}
+ 
+.pos-section h2, .receipt-section h2 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+ 
+.product-selector {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+ 
+.product-selector label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+ 
+.product-selector select {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+ 
+.btn-add {
+    padding: 10px 16px;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border-radius: 4px;
+    white-space: nowrap;
+}
+ 
+.btn-add:hover {
+    background-color: #2980b9;
+}
+ 
+.order-list {
+    margin-bottom: 24px;
+}
+ 
+.order-list h3 {
+    margin-bottom: 12px;
+}
+ 
+.order-items {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px 0;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 12px;
+}
+ 
+.order-items li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+}
+ 
+.order-items li:last-child {
+    border-bottom: none;
+}
+ 
+.order-items .empty {
+    color: var(--text-light);
+    text-align: center;
+    border: none;
+}
+ 
+.order-summary {
+    background-color: var(--light-bg);
+    padding: 12px;
+    border-radius: 4px;
+    text-align: right;
+}
+ 
+.order-summary span {
+    font-size: 1.2rem;
+    color: var(--success-color);
+}
+ 
+.receipt-display {
+    background-color: var(--light-bg);
+    padding: 20px;
+    border-radius: 4px;
+    min-height: 400px;
+    font-family: 'Courier New', monospace;
+    white-space: pre-line;
+}
+ 
+.receipt-display .empty {
+    color: var(--text-light);
+    text-align: center;
+    font-family: inherit;
+}
+ 
+@media (max-width: 900px) {
+    .cashier-layout {
+        grid-template-columns: 1fr;
+    }
+}

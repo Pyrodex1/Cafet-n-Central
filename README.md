@@ -363,3 +363,45 @@ Completado el módulo de cliente, continuamos con el segundo rol (cajero) siguie
 Separar la captura del pedido de la visualización del recibo facilita la comprensión del flujo: primero se construye la orden, luego se genera el comprobante. Esto refleja el proceso real de un punto de venta.
 
 ---
+
+### Commit 10: `agregar estilos visuales del módulo de cajero`
+
+**Archivo creado:** `css/cajero.css`
+
+**¿Qué se implementó?**
+Se diseñó la interfaz visual del punto de venta:
+
+1. **Encabezado del cajero**
+   - Mismo estilo que el módulo cliente (fondo primario, texto blanco)
+   - Botón de logout con borde semitransparente
+
+2. **Layout de dos columnas**
+   - Grid 1fr 1fr para dividir captura de pedido y visualización de recibo
+   - Media query para apilar en pantallas pequeñas
+
+3. **Sección de captura**
+   - Selector de productos con flexbox para alineación
+   - Lista de pedido con scroll (`max-height: 300px; overflow-y: auto`)
+   - Resumen con total destacado en color verde
+
+4. **Sección de recibo**
+   - Fondo gris claro simulando papel
+   - Fuente monoespaciada (`Courier New`) para efecto de ticket impreso
+   - `white-space: pre-line` para respetar saltos de línea
+
+**¿Por qué se hizo en este momento?**
+Siguiendo el patrón vertical: estructura HTML lista, ahora aplicamos estilos antes de programar la lógica.
+
+**¿Cómo funciona?**
+- Grid divide el espacio equitativamente entre captura y recibo
+- La fuente monoespaciada da apariencia de ticket térmico de caja registradora
+- Variables CSS mantienen consistencia con el resto del sistema
+
+**¿Cómo se conecta al proyecto?**
+`cajero.css` se importa solo en `cajero.html`, heredando variables de `common.css` pero definiendo estilos específicos del POS.
+
+**Decisión técnica:**
+Usar fuente monoespaciada para el recibo simula la salida de una impresora térmica real, mejorando la experiencia visual sin necesidad de librerías externas.
+
+---
+
