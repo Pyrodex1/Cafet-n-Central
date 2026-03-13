@@ -279,4 +279,46 @@ Después de tener la estructura, tocaba darle identidad visual coherente con el 
 
 **Decisión técnica:**
 Separar estilos por módulo nos permite mantener el límite de 150 líneas y facilita el mantenimiento. Además, usar CSS nativo mantiene el cumplimiento de la restricción “sin frameworks”.
+
+---
+
+### Commit 8: `implementar lógica interactiva del módulo de clientela`
+
+**Archivo creado:** `js/cliente.js`
+
+**¿Qué se implementó?**
+Toda la lógica que vuelve funcional la vista del cliente:
+
+1. **Control de sesión y datos del usuario**
+   - Lee `sessionStorage` para validar que sea un cliente
+   - Muestra nombre y rol en el encabezado
+
+2. **Catálogo filtrable**
+   - `renderProducts()` recorre `PRODUCTS` y pinta tarjetas según categoría
+   - Usa `dataset` para vincular botones “Agregar” con el ID del producto
+
+3. **Carrito de compras**
+   - Arreglo `cart` en memoria con cantidades acumuladas
+   - `updateCartUI()` recalcula contador, lista y subtotal
+
+4. **Historial y puntos de lealtad**
+   - Arreglo `history` que almacena fecha, cantidad y total de cada compra
+   - `loyaltyPoints` se incrementa según el monto (5 puntos por unidad monetaria)
+
+5. **Eventos principales**
+   - Cambio de categoría, clic en “Agregar”, completar pedido y cerrar sesión
+
+**¿Por qué se hizo en este momento?**
+Luego de tener la estructura y los estilos listos, tocaba hacer el módulo completamente interactivo antes de pasar al siguiente rol, manteniendo el flujo vertical.
+
+**¿Cómo funciona?**
+- `Array.find` localiza productos, `Array.reduce` calcula totales
+- `Date().toLocaleString('es-VE')` genera la marca de tiempo para el historial
+- `sessionStorage.removeItem()` cierra sesión y redirige al login
+
+**¿Cómo se conecta al proyecto?**
+Este JS depende de `data.js` y se carga en `cliente.html`. El módulo de autenticación redirige aquí cuando el usuario es cliente, completando así el flujo de extremo a extremo.
+
+**Decisión técnica:**
+Mantener los estados (`cart`, `history`, `loyaltyPoints`) en memoria es suficiente para el prototipo. Se prioriza claridad sobre persistencia, ya que el requerimiento explícitamente indica datos simulados sin backend.
 " 
