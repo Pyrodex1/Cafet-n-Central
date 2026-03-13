@@ -156,3 +156,46 @@ Este archivo se importa en `index.html` después de `common.css`. Hereda las var
 Separar estilos específicos del módulo en archivos independientes facilita el mantenimiento. Si necesitamos modificar solo el login, editamos `login.css` sin afectar otros módulos.
 
 ---
+
+### Commit 5: `implementar lógica de autenticación y redirección por roles`
+
+**Archivo creado:** `js/auth.js`
+
+**¿Qué se implementó?**
+Se creó la lógica JavaScript que hace funcional el sistema de autenticación. Incluye:
+
+1. **Captura del evento submit**:
+   - `addEventListener('submit', ...)` intercepta el envío del formulario
+   - `event.preventDefault()` evita que la página se recargue
+
+2. **Validación de credenciales**:
+   - Obtiene los valores de usuario y contraseña desde los inputs
+   - `.trim()` elimina espacios en blanco accidentales
+   - `USERS.find()` busca coincidencia exacta de usuario y contraseña
+
+3. **Manejo de sesión**:
+   - `sessionStorage.setItem()` guarda los datos del usuario autenticado
+   - `JSON.stringify()` convierte el objeto usuario a texto para almacenarlo
+
+4. **Redirección por roles**:
+   - `switch(user.role)` redirige según el tipo de usuario
+   - Cliente → `cliente.html`, Cajero → `cajero.html`, Admin → `admin.html`
+
+5. **Manejo de errores**:
+   - Muestra mensaje de error si las credenciales son incorrectas
+   - `setTimeout()` oculta el mensaje automáticamente después de 3 segundos
+
+**¿Por qué se hizo en este momento?**
+Completando la metodología vertical: HTML (estructura) + CSS (estilos) + JS (lógica). El módulo de login ahora está 100% funcional antes de pasar al siguiente módulo.
+
+**¿Cómo funciona?**
+- **Array.find()** retorna el primer usuario que coincida con las credenciales, o `undefined` si no existe
+- **sessionStorage** mantiene los datos solo durante la sesión del navegador (se borra al cerrar la pestaña)
+- **window.location.href** redirige a la página correspondiente según el rol
+
+**¿Cómo se conecta al proyecto?**
+Este archivo es importado en `index.html` y depende de `data.js` (debe cargarse después). Los módulos de cliente, cajero y admin leerán `sessionStorage` para verificar que el usuario esté autenticado y mostrar su información.
+
+**Decisión técnica:**
+Usar `sessionStorage` en lugar de `localStorage` es más seguro para datos de sesión. Si el usuario cierra el navegador, debe volver a autenticarse. Esto simula el comportamiento de un sistema real sin backend.
+" 
