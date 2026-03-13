@@ -74,3 +74,44 @@ Usar variables CSS nativas en lugar de preprocesadores (SASS/LESS) cumple con la
 
 ---
 
+### Commit 3: `crear estructura HTML del módulo de login`
+
+**Archivo creado:** `index.html`
+
+**¿Qué se implementó?**
+Se creó la página de inicio del sistema (punto de entrada) con el formulario de autenticación. Elementos principales:
+
+1. **Estructura semántica HTML5**:
+   - `<!DOCTYPE html>` y configuración de idioma español
+   - Meta viewport para diseño responsivo
+   - Importación ordenada de hojas de estilo (common.css primero, luego login.css)
+
+2. **Formulario de login**:
+   - Campos de usuario y contraseña con atributos `required` para validación HTML5
+   - Atributos `autocomplete` para mejorar la experiencia del usuario
+   - Contenedor para mensajes de error (`errorMessage`)
+   - Botón de envío tipo `submit`
+
+3. **Sección informativa**:
+   - Lista de credenciales de prueba para facilitar el acceso
+   - Uso de etiqueta `<code>` para resaltar los nombres de usuario
+
+4. **Scripts**:
+   - Importación de `data.js` (datos estáticos)
+   - Importación de `auth.js` (lógica de autenticación - pendiente)
+
+**¿Por qué se hizo en este momento?**
+Siguiendo la metodología vertical, primero definimos la estructura HTML antes de estilizarla o programar su lógica. El HTML es el esqueleto de la interfaz.
+
+**¿Cómo funciona?**
+- El atributo `required` en los inputs activa la validación nativa del navegador
+- El `id` de cada elemento permite manipularlo desde JavaScript
+- El evento `submit` del formulario será capturado por JavaScript para validar credenciales
+
+**¿Cómo se conecta al proyecto?**
+Esta es la página de entrada del sistema. Todos los usuarios (cliente, cajero, admin) acceden por aquí. Según las credenciales ingresadas, serán redirigidos a su módulo correspondiente (cliente.html, cajero.html o admin.html).
+
+**Decisión técnica:**
+Usar validación HTML5 nativa (`required`) reduce la necesidad de JavaScript para validaciones básicas. El formulario no se enviará si los campos están vacíos, mejorando la UX sin código adicional.
+
+---
