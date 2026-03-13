@@ -452,3 +452,43 @@ Usar texto plano formateado con espacios y líneas simula un ticket térmico rea
 
 ---
 
+### Commit 12: `crear estructura HTML del módulo de administración`
+
+**Archivo creado:** `admin.html`
+
+**¿Qué se implementó?**
+Se construyó la interfaz de administración del cafetín:
+
+1. **Encabezado del administrador**
+   - Muestra nombre y rol del administrador
+   - Botón de cierre de sesión
+
+2. **Formulario de agregar producto**
+   - Campos para nombre, precio, categoría y URL de imagen
+   - Validación HTML5 con `required` y tipos específicos (`number`, `url`)
+   - Selector de categoría (bebidas/comida)
+
+3. **Sección de gestión**
+   - Contenedor `#productList` donde se mostrarán los productos existentes
+   - Cada producto tendrá opción de eliminar
+
+4. **Scripts vinculados**
+   - `data.js` para acceder al catálogo
+   - `admin.js` (próximo paso) para la lógica de gestión
+
+**¿Por qué se hizo en este momento?**
+Último módulo del sistema. Siguiendo el patrón vertical: primero la estructura HTML antes de estilos y lógica.
+
+**¿Cómo funciona?**
+- El formulario captura datos del nuevo producto
+- La validación HTML5 asegura que todos los campos sean correctos antes de enviar
+- La lista de productos se poblará dinámicamente con JavaScript
+
+**¿Cómo se conecta al proyecto?**
+`auth.js` redirige a `admin.html` cuando el usuario tiene rol "admin". Esta vista permite gestionar el catálogo de productos del cafetín.
+
+**Decisión técnica:**
+Usar validación HTML5 nativa reduce la necesidad de JavaScript para validaciones básicas. Los tipos de input (`number`, `url`) proporcionan teclados apropiados en móviles y validación automática.
+
+---
+
