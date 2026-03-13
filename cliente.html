@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo de Cliente - Cafetín Central</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/cliente.css">
+</head>
+<body>
+    <header class="client-header">
+        <div class="user-info">
+            <h1>Bienvenido al Cafetín</h1>
+            <p id="clientName">Usuario Cliente</p>
+            <small id="clientRole">Rol: Cliente</small>
+        </div>
+        <button id="logoutBtn" class="btn-logout">Cerrar sesión</button>
+    </header>
+
+    <main class="client-layout">
+        <section class="catalog">
+            <div class="section-header">
+                <h2>Catálogo de Productos</h2>
+                <select id="categoryFilter">
+                    <option value="all">Todas las categorías</option>
+                    <option value="bebidas">Bebidas</option>
+                    <option value="comida">Comida</option>
+                </select>
+            </div>
+            <div id="productGrid" class="product-grid"></div>
+        </section>
+
+        <section class="sidebar">
+            <div class="cart">
+                <div class="section-header">
+                    <h3>Carrito</h3>
+                    <span id="cartCount" class="cart-count">0</span>
+                </div>
+                <ul id="cartItems" class="cart-items">
+                    <li class="empty">Tu carrito está vacío</li>
+                </ul>
+                <div class="cart-summary">
+                    <p>Subtotal: <span id="cartSubtotal">$0.00</span></p>
+                    <button id="completePurchase" class="btn-primary">Completar pedido</button>
+                </div>
+            </div>
+
+            <div class="history">
+                <h3>Historial de Compras</h3>
+                <ul id="purchaseHistory" class="history-list">
+                    <li class="empty">Aún no realizas compras</li>
+                </ul>
+            </div>
+
+            <div class="loyalty">
+                <h3>Puntos de Lealtad</h3>
+                <p id="loyaltyPoints">Tienes 0 puntos acumulados</p>
+                <small>Canjea tus puntos cuando alcances 200</small>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/cliente.js"></script>
+</body>
+</html>

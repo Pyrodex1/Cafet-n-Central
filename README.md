@@ -198,4 +198,44 @@ Este archivo es importado en `index.html` y depende de `data.js` (debe cargarse 
 
 **Decisión técnica:**
 Usar `sessionStorage` en lugar de `localStorage` es más seguro para datos de sesión. Si el usuario cierra el navegador, debe volver a autenticarse. Esto simula el comportamiento de un sistema real sin backend.
+
+---
+
+### Commit 6: `crear estructura HTML del módulo de clientela`
+
+**Archivo creado:** `cliente.html`
+
+**¿Qué se implementó?**
+Se construyó la estructura base del módulo destinado a los clientes del cafetín. El HTML deja definidos todos los contenedores necesarios para la funcionalidad:
+
+1. **Encabezado con datos del usuario**
+   - Muestra nombre y rol del cliente
+   - Botón de “Cerrar sesión” para volver al login
+
+2. **Catálogo de productos**
+   - Selector de categorías (`select`) para filtrar entre bebidas/comida
+   - Grid (`#productGrid`) donde se renderizarán las tarjetas de productos via JS
+
+3. **Barra lateral con tres bloques**
+   - **Carrito:** contador, lista de ítems y subtotal
+   - **Historial:** lista para compras previas
+   - **Lealtad:** texto con puntos acumulados
+
+4. **Scripts**
+   - `data.js` para reutilizar los productos
+   - `cliente.js` (próximo paso) para agregar interacción
+
+**¿Por qué se hizo en este momento?**
+Continuamos con la metodología vertical: cada módulo debe quedar listo primero en estructura antes de añadir estilos y comportamiento.
+
+**¿Cómo funciona?**
+- Cada bloque tiene `id` y clases específicas para que el JS pueda inyectar información dinámica.
+- Secciones `<section>` resaltan la semántica: catálogo vs. barra lateral.
+- El formulario de filtro y los botones del carrito se agregarán en pasos posteriores.
+
+**¿Cómo se conecta al proyecto?**
+Este archivo será la vista que reciben los usuarios con rol “cliente” después del login. `auth.js` redirige a `cliente.html` y, una vez aquí, `cliente.js` validará la sesión y poblará la interfaz.
+
+**Decisión técnica:**
+Separar la estructura HTML del módulo permite trabajar posteriormente los estilos (`cliente.css`) y la lógica (`cliente.js`) sin mezclar responsabilidades, manteniendo el patrón vertical exigido.
 " 
