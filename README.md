@@ -115,3 +115,44 @@ Esta es la página de entrada del sistema. Todos los usuarios (cliente, cajero, 
 Usar validación HTML5 nativa (`required`) reduce la necesidad de JavaScript para validaciones básicas. El formulario no se enviará si los campos están vacíos, mejorando la UX sin código adicional.
 
 ---
+
+### Commit 4: `agregar estilos visuales del módulo de login`
+
+**Archivo creado:** `css/login.css`
+
+**¿Qué se implementó?**
+Se crearon los estilos CSS específicos para la página de login. Incluye:
+
+1. **Layout centrado con Flexbox**:
+   - `.login-container` usa `display: flex` para centrar vertical y horizontalmente el formulario
+   - `min-height: 100vh` asegura que ocupe toda la altura de la ventana
+
+2. **Tarjeta de login (`.login-card`)**:
+   - Fondo blanco con sombra para efecto de elevación
+   - `border-radius` para esquinas redondeadas
+   - `max-width: 400px` para mantener proporciones adecuadas
+
+3. **Estilos de formulario**:
+   - Inputs con borde sutil que cambia a color secundario en `:focus`
+   - Transiciones suaves (`transition: border-color 0.3s ease`)
+   - Botón de ancho completo con efecto hover
+
+4. **Uso de variables CSS**:
+   - `var(--white)`, `var(--shadow)`, `var(--secondary-color)`, etc.
+   - Mantiene consistencia con la paleta definida en `common.css`
+
+**¿Por qué se hizo en este momento?**
+Siguiendo la metodología vertical, después de crear la estructura HTML, aplicamos los estilos visuales. Ahora el formulario tiene apariencia profesional y es completamente funcional visualmente.
+
+**¿Cómo funciona?**
+- **Flexbox** permite centrado perfecto sin cálculos matemáticos complejos
+- **`:focus`** mejora la accesibilidad indicando visualmente qué campo está activo
+- **`:hover`** en el botón proporciona feedback visual de interactividad
+
+**¿Cómo se conecta al proyecto?**
+Este archivo se importa en `index.html` después de `common.css`. Hereda las variables CSS y estilos base, aplicando estilos específicos solo para el módulo de login.
+
+**Decisión técnica:**
+Separar estilos específicos del módulo en archivos independientes facilita el mantenimiento. Si necesitamos modificar solo el login, editamos `login.css` sin afectar otros módulos.
+
+---
