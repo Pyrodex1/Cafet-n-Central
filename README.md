@@ -492,3 +492,45 @@ Usar validación HTML5 nativa reduce la necesidad de JavaScript para validacione
 
 ---
 
+### Commit 13: `agregar estilos visuales del módulo de administración`
+
+**Archivo creado:** `css/admin.css`
+
+**¿Qué se implementó?**
+Se diseñó la interfaz visual del panel de administración:
+
+1. **Encabezado del administrador**
+   - Mismo estilo consistente con otros módulos (fondo primario, texto blanco)
+   - Botón de logout con borde semitransparente
+
+2. **Layout de dos columnas**
+   - Grid 1fr 1fr para dividir formulario de agregar y lista de gestión
+   - Media query para apilar en pantallas pequeñas
+
+3. **Formulario de producto**
+   - Inputs con borde sutil que cambia a color secundario en `:focus`
+   - Labels con peso medio para mejor legibilidad
+   - Botón primario con color de éxito
+
+4. **Lista de productos**
+   - Tarjetas con borde para cada producto
+   - Botón de eliminar en color rojo (danger)
+   - Scroll vertical para listas largas (`max-height: 500px`)
+
+**¿Por qué se hizo en este momento?**
+Siguiendo el patrón vertical: estructura HTML lista, ahora aplicamos estilos antes de programar la lógica.
+
+**¿Cómo funciona?**
+- Grid divide el espacio equitativamente entre formulario y lista
+- Flexbox alinea información y botones dentro de cada tarjeta de producto
+- Variables CSS mantienen consistencia visual con todo el sistema
+
+**¿Cómo se conecta al proyecto?**
+`admin.css` se importa solo en `admin.html`, heredando variables de `common.css` pero definiendo estilos específicos del panel de administración.
+
+**Decisión técnica:**
+Usar color rojo (`--danger-color`) para el botón de eliminar proporciona una señal visual clara de acción destructiva, siguiendo convenciones de diseño UX estándar.
+
+---
+
+

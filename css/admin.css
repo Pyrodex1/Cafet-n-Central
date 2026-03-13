@@ -1,0 +1,111 @@
+.admin-header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-header h1 {
+    font-size: 1.6rem;
+}
+
+.admin-header p {
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+.admin-header small {
+    color: rgba(255,255,255,0.8);
+}
+
+.admin-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 24px;
+}
+
+.add-product-section, .manage-section {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 24px;
+}
+
+.add-product-section h2, .manage-section h2 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.product-form .form-group {
+    margin-bottom: 16px;
+}
+
+.product-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.product-form input, .product-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.product-form input:focus, .product-form select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+.product-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.product-item {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-item-info h4 {
+    margin-bottom: 4px;
+}
+
+.product-item-info p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.btn-delete {
+    background-color: var(--danger-color);
+    color: var(--white);
+    padding: 8px 14px;
+    border-radius: 4px;
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text-light);
+    padding: 40px 20px;
+}
+
+@media (max-width: 900px) {
+    .admin-layout {
+        grid-template-columns: 1fr;
+    }
+}
