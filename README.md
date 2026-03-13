@@ -533,4 +533,47 @@ Usar color rojo (`--danger-color`) para el botón de eliminar proporciona una se
 
 ---
 
+### Commit 14: `implementar lógica interactiva del módulo de administración`
 
+**Archivo creado:** `js/admin.js`
+
+**¿Qué se implementó?**
+Toda la funcionalidad del panel de administración:
+
+1. **Control de sesión**
+   - Valida que el usuario sea administrador, redirige al login si no
+   - Muestra nombre y rol en el encabezado
+
+2. **Renderizado de lista de productos**
+   - `renderProductList()` muestra todos los productos del catálogo
+   - Cada producto tiene botón de eliminar con su ID asociado
+   - Muestra mensaje cuando no hay productos
+
+3. **Agregar productos**
+   - `addProduct()` captura datos del formulario
+   - Genera ID único incremental usando `Math.max()`
+   - Valida que todos los campos estén completos
+   - Agrega el producto al array `PRODUCTS`
+   - Resetea el formulario después de agregar
+
+4. **Eliminar productos**
+   - `deleteProduct()` busca el producto por ID usando `findIndex()`
+   - Usa `Array.splice()` para remover del array
+   - Confirmación con `confirm()` antes de eliminar
+   - Re-renderiza la lista después de eliminar
+
+**¿Por qué se hizo en este momento?**
+Completando el patrón vertical del último módulo: HTML + CSS + JS. El sistema completo ahora es funcional.
+
+**¿Cómo funciona?**
+- `Math.max(...PRODUCTS.map(p => p.id))` encuentra el ID más alto para generar nuevos IDs únicos
+- `Array.findIndex()` localiza la posición del producto a eliminar
+- `confirm()` es una función nativa del navegador para confirmación de usuario
+- Event delegation en `productList` captura clics en botones de eliminar
+
+**¿Cómo se conecta al proyecto?**
+Este JS depende de `data.js` y se carga en `admin.html`. Los cambios en `PRODUCTS` afectan a todos los módulos que lo consumen (cliente y cajero).
+
+**Decisión técnica:**
+Modificar directamente el array `PRODUCTS` permite que los cambios se reflejen inmediatamente en otros módulos durante la misma sesión. Para un sistema real se usaría una API, pero para el prototipo académico esta solución es clara y funcional.
+" 
